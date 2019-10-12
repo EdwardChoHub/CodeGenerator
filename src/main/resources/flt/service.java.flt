@@ -1,0 +1,34 @@
+package ${moduleName}.service;
+
+import ${moduleName}.pojo.${pojoClassName};
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+
+import java.util.List;
+import java.util.Set;
+
+
+public interface ${pojoClassName}Service{
+    public void insert(${pojoClassName} ${pojoClassName?uncap_first});
+
+    public ${pojoClassName} selectById(Integer id);
+
+    public ${pojoClassName} selectOne(${pojoClassName} ${pojoClassName?uncap_first});
+
+    public List<${pojoClassName}> selectAll();
+
+    public Integer selectAllTotal();
+
+    public List<${pojoClassName}> selectListByIds(Set<Integer> ids);
+
+    public IPage<${pojoClassName}> selectListByPage(Integer pageNum, Integer pageSize);
+
+    public void updateById(${pojoClassName} ${pojoClassName?uncap_first});
+
+    public void deleteById(Integer id);
+
+    public void deleteByIds(Set<Integer> ids);
+
+
+
+}

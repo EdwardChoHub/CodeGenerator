@@ -1,0 +1,69 @@
+package ${moduleName}.service.impl;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
+import ${moduleName}.dao.${pojoClassName}Dao;
+import ${moduleName}.service.${pojoClassName}Service;
+import ${moduleName}.pojo.${pojoClassName};
+import java.util.List;
+import java.util.Set;
+
+<#list typePackages as typePackage>
+import ${typePackage};
+</#list>
+
+@Service
+@Transactional
+public class ${pojoClassName}ServiceImpl implements ${pojoClassName}Service {
+    @Autowired
+    private ${pojoClassName}Dao ${pojoClassName?uncap_first}Dao;
+
+    public void insert(${pojoClassName} ${pojoClassName?uncap_first}) {
+        ${pojoClassName?uncap_first}Dao.insert(${pojoClassName?uncap_first});
+    }
+
+    public ${pojoClassName} selectById(Integer id) {
+        return ${pojoClassName?uncap_first}Dao.selectById(id);
+    }
+
+    public ${pojoClassName} selectOne(${pojoClassName} ${pojoClassName?uncap_first}){
+        QueryWrapper<${pojoClassName}> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(${pojoClassName?uncap_first});
+        return ${pojoClassName?uncap_first}Dao.selectOne(queryWrapper);
+    }
+
+    public List<${pojoClassName}> selectAll() {
+        return ${pojoClassName?uncap_first}Dao.selectList(null);
+    }
+
+    public Integer selectAllTotal() {
+        return ${pojoClassName?uncap_first}Dao.selectCount(null);
+    }
+
+    public List<${pojoClassName}> selectListByIds(Set<Integer> ids) {
+        return ${pojoClassName?uncap_first}Dao.selectBatchIds(ids);
+    }
+
+    public IPage<${pojoClassName}> selectListByPage(Integer pageNum, Integer pageSize) {
+        Page<${pojoClassName}> page  = new Page<>(pageNum,pageSize);
+        return ${pojoClassName?uncap_first}Dao.selectPage(page,null);
+    }
+
+    public void updateById(${pojoClassName} ${pojoClassName?uncap_first}) {
+        ${pojoClassName?uncap_first}Dao.updateById(${pojoClassName?uncap_first});
+    }
+
+    public void deleteById(Integer id) {
+        ${pojoClassName?uncap_first}Dao.deleteById(id);
+    }
+
+    public void deleteByIds(Set<Integer> ids) {
+        ${pojoClassName?uncap_first}Dao.deleteBatchIds(ids);
+    };
+}

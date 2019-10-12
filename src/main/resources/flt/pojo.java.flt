@@ -1,0 +1,29 @@
+package ${moduleName}.pojo;
+
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import lombok.Data;
+
+<#--util基本包的导入-->
+<#list typePackages as typePackage>
+import ${typePackage};
+</#list>
+
+@Data
+@TableName("${tableName}")
+public class ${pojoClassName} implements Serializable{
+<#list fields as field>
+    <#if field.comment??>//${field.comment}</#if>
+    <#if field.isExist == "true">
+        <#if field.isPrimaryKey == "true">
+    @TableId(<#if field.isAutoIncrement == "true">type = IdType.AUTO,</#if> value = "${field.realName}")
+        <#else>
+    @TableField("${field.realName}")
+        </#if>
+    <#else>
+    @TableField(exist = false)
+    </#if>
+	private ${field.type} ${field.name};
+</#list>
+}
