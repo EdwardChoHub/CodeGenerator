@@ -3,6 +3,7 @@ package generator.java;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 public class JavaMethod {
@@ -21,4 +22,7 @@ public class JavaMethod {
     private int useArea;
     //形参列表
     private List<JavaProperty> javaPropertyList;
+    //方法拥有的注解
+    private Set<String> notes;
+
 }
