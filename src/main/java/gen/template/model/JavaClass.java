@@ -1,4 +1,4 @@
-package generator.java;
+package gen.template.model;
 
 import lombok.Data;
 
@@ -10,5 +10,6 @@ public class JavaClass {
     private String  name;
     //依赖包集合(不重复集合)
     private Set<String> dependPackages;
-    //
+    //注解
+    private Set<String> annotationList;
 }

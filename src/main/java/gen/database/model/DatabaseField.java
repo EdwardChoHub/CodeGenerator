@@ -1,4 +1,4 @@
-package generator.database;
+package gen.database.model;
 
 import lombok.Data;
 
@@ -13,13 +13,13 @@ public class DatabaseField{
     //备注
     private String comment;
     //是否主键
-    private boolean isPrimaryKey;
+    private boolean primaryKey;
     //是否外键
-    private boolean isForeignKey;
+    private boolean foreignKey;
     //是否自增
-    private boolean isAutoIncrement;
+    private boolean autoIncrement;
     //默认值
     private String defaultValue;
     //是否非空
-    private  boolean isNull;
+    private boolean notNull;
 }

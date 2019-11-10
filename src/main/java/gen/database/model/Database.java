@@ -1,4 +1,4 @@
-package generator.database;
+package gen.database.model;
 
 import lombok.Data;
 

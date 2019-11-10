@@ -1,4 +1,4 @@
-package generator.java;
+package gen.template.model;
 
 import lombok.Data;
 

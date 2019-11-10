@@ -1,12 +1,12 @@
 package generator;
 
-import generator.model.Field;
-import generator.model.Table;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import generator.model.Field;
+import generator.model.Table;
 
-
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -149,6 +149,7 @@ public class Generator extends Config {
         return rList;
     }
     private void createMvcDir(String prefix){
+
         for (String dir : MVC_BASIC_DIRS){
             File file = new File(prefix + dir);
             file.mkdirs();
