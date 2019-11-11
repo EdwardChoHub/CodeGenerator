@@ -1,8 +1,6 @@
 package gen.config;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TemplateConfig {
@@ -18,4 +16,11 @@ public class TemplateConfig {
         //使用mybatis_plus架包
         put("MYBATISPLUS", true);
     }};
+    //使用简单的java对象，false则拆分为do,dto,vo,bo,ao
+    public static final boolean USE_POJO = true;
+    //do,dto
+    public static final boolean USE_AJAX_POJO= true;
+    //do,dto,vo
+    public static final boolean USE_RANDER_BACK = true;
+
 }
