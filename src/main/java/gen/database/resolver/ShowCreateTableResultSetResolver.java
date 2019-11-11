@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ShowCreateTableResultSetResolver {
-    public List<DatabaseField> resolver(ResultSet showCreateTablesResultSet) throws SQLException {
+    public static List<DatabaseField> resolver(ResultSet showCreateTablesResultSet) throws SQLException {
 
         showCreateTablesResultSet.next();
         List<DatabaseField> fieldList = new ArrayList<>();

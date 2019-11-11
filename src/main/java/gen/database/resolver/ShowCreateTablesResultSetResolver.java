@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShowCreateTablesResultSetResolver {
-    public List<DatabaseTable> resolver(ResultSet showCreateTablesResultSet) throws Exception {
+    public static List<DatabaseTable> resolver(ResultSet showCreateTablesResultSet) throws Exception {
         List<DatabaseTable> databaseTableList = new ArrayList<>();
         while (showCreateTablesResultSet.next()) {
             DatabaseTable table = new DatabaseTable();

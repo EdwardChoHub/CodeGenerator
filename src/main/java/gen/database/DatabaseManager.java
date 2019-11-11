@@ -14,15 +14,24 @@ public class DatabaseManager {
     private List<Map<String, String>> ALLOW_DB_LIST;
     //构造器，先获取允许使用的数据库列表
     public DatabaseManager(){
-        this.ALLOW_DB_LIST = this.getAllowDbList(DatabaseConnectionConfig.DB_MYSQL_LIST, Config.ALLOW_DB_ID_LIST);
+        this.ALLOW_DB_LIST = this.getAllowDbList(DatabaseConnectionConfig.DB_MYSQL_LIST, DatabaseConnectionConfig.ALLOW_DB_ID_LIST);
     }
     //连接数据库返回对象组
-    public DatabaseManager getAllowConnection() throws Exception{
-        List<Map<String, String>> ALLOW_DB_LIST = this.getAllowDbList(DatabaseConnectionConfig.DB_MYSQL_LIST, Config.ALLOW_DB_ID_LIST);
+    public DatabaseManager getAllowConnection(List<String> ALLOW_DB_ID_LIST) throws Exception{
+        List<Map<String, String>> ALLOW_DB_LIST = this.getAllowDbList(DatabaseConnectionConfig.DB_MYSQL_LIST, ALLOW_DB_ID_LIST);
         DBConnection dbConnection = new DBConnection();
         this.connMap =  dbConnection.getConnectionList(ALLOW_DB_LIST);
         return this;
     }
+    public Map<String, ResultSet> executeQueryAll(String sql) throws Exception{
+        Map<String, ResultSet> rsMap = new HashMap<>();
+        for (String key : this.connMap.keySet()){
+            Connection conn = this.connMap.get(key);
+            rsMap.put(key, conn.createStatement().executeQuery(sql));
+        }
+        return rsMap;
+    }
+
     //批量执行语句
     public Map<String, ResultSet> executeQuery(String sql, List<String> DB_ID_LIST) throws Exception{
         Map<String, ResultSet> rsMap = new HashMap<>();

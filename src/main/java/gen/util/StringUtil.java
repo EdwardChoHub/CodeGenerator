@@ -45,5 +45,10 @@ public class StringUtil {
         }
         return rList;
     }
+    public static String getDbName(String DB_URL){
+        DB_URL = DB_URL.split("/?")[0];
+        String[] temp = DB_URL.split("/");
+        return temp[temp.length - 1];
+    }
 
 }
