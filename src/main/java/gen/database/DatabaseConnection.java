@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class DBConnection {
+public class DatabaseConnection {
     public Map<String,Connection> getConnectionList(List<Map<String, String>> DB_LIST) throws Exception {
         Map<String, Connection> connMap = new HashMap<String,Connection>();
         if(DB_LIST == null) return connMap;
