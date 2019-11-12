@@ -18,31 +18,52 @@ public class TemplateConfig {
         //使用mybatis_plus架包
         put("MYBATISPLUS", true);
     }};
-    //使用简单的java对象
-    public static final boolean USE_EASY_POJO = true;
-    //使用完全细分pojo（do,dto,vo,bo,ao）
-    public static final boolean USE_SUBDIVIDE_POJO = true;
-    //前后端分离(do,dto)
-    public static final boolean USE_AJAX_POJO= true;
-    //后端渲染模式(do,dto,vo)
-    public static final boolean USE_RENDER_BACK = true;
-    //自定义选择使用pojo模型
-    public static final List<String> USE_CUSTOMER = new ArrayList<String>(){{
+    /**
+     * EASY 只有pojo
+     * FRONT_RENDER 前端渲染，拆分为do, dto
+     * BACK_RENDER 后端渲染，拆分为do，dto, vo
+     * SAFE 安全模式，do,dto,vo,bo
+     * SUBDIVIDE 完全拆分，do,dto,vo,bo,ao
+     * CUSTOMER 自定义，设置自定义才会区USE_POJO_TYPE_CUSTOMER拿值
+     */
+    public static final String USE_POJO_MODEL = "EASY";
+   //只有DO,DTO,VO,BO,AO
+    public static final List<String> USE_POJO_TYPE_CUSTOMER = new ArrayList<String>(){{
         add("DO");
         add("DTO");
         add("VO");
         add("BO");
         add("AO");
     }};
-    public static final List<String> CONTROLLER_DEFAULT_MEHOD_LIST = new ArrayList<String>(){{
-        add("findByPrimaryKey");
-        add("insert");
-        add("updateByPrimaryKey");
-        add("selectByPage");
-        add("deleteByPrimaryKey");
+    /**
+     * 渲染模式
+     * FRONT 前端渲染，前后端分离
+     * BACK 后端渲染
+     * MIX 混合
+     */
+    public static final String USE_RENDER_MODE = "FRONT";
+    public static final Map<String,Map<String,Object>> USE_RENDER_MODE_CONFIG = new HashMap<String, Map<String,Object>>(){{
+        //默认方法相关公用配置信息
+        put("USE_DEFAULT_METHOD_CONFIG", new HashMap<String, Object>(){{
+            //替换共用词为关键字，例如primarykey
+            put("USE_REPLACE_KEYWORD", true);
+        }});
+        put("FRONT", new HashMap<String,Object>(){{
+           //使用通用controller类
+           put("USE_BASE_CONTROLLER", true);
+           //使用通用service类
+           put("USE_BASE_SERVICE", true);
+           //使用通用dao类
+           put("USE_BASE_DAO", true);
+           //controller/service/dao 默认方法
+           put("USE_DEFAULT_METHOD", new ArrayList<String>(){{
+               add("findByPrimaryKey");
+               add("insert");
+               add("updateByPrimaryKey");
+               add("selectByPage");
+               add("deleteByPrimaryKey");
+           }});
+
+       }});
     }};
-    //使用baseController，包含默认通用的几个方法，controller继承他即可
-    public static final boolean USE_BASE_FILE_CONTROLLER = true;
-    //使用baseService，包含默认通用的几个方法，controller继承他即可
-    public static final boolean USE_BASE_FILE_SERVICE = true;
 }
