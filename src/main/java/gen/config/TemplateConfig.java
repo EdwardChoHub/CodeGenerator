@@ -42,6 +42,7 @@ public class TemplateConfig {
      * MIX 混合
      */
     public static final String USE_RENDER_MODE = "FRONT";
+    //渲染模式相关配置
     public static final Map<String,Map<String,Object>> USE_RENDER_MODE_CONFIG = new HashMap<String, Map<String,Object>>(){{
         //默认方法相关公用配置信息
         put("USE_DEFAULT_METHOD_CONFIG", new HashMap<String, Object>(){{
