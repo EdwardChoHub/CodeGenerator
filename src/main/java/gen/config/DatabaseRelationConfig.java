@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class DatabaseRelationConfig {
     //数据库表关系
-    public static final Map<String, Map<String,String>> RELATION = new HashMap<String, Map<String, String>>() {{
+    public static final Map<String, Map<String,String>> DATABASE_RELATION = new HashMap<String, Map<String, String>>() {{
         //一对多关系(需要带上DB_ID),单数据库无需携带DB_ID
         put("ONE_TO_MANY", new HashMap<String, String>(){{
             put("ChapterCategory","Chapter");
