@@ -42,20 +42,21 @@ public class TemplateConfig {
      * MIX 混合
      */
     public static final String USE_RENDER_MODE = "FRONT";
-    //渲染模式相关配置
+    //渲染模式相关配置，MIX混合模式则包含前端和后端
     public static final Map<String,Map<String,Object>> USE_RENDER_MODE_CONFIG = new HashMap<String, Map<String,Object>>(){{
         //默认方法相关公用配置信息
         put("USE_DEFAULT_METHOD_CONFIG", new HashMap<String, Object>(){{
-            //替换共用词为关键字，例如primarykey
+            //替换共用词为私有词，例如primarykey
             put("USE_REPLACE_KEYWORD", true);
+            //使用通用controller类
+            put("USE_BASE_CONTROLLER", true);
+            //使用通用service类
+            put("USE_BASE_SERVICE", true);
+            //使用通用dao类
+            put("USE_BASE_DAO", true);
         }});
+        //前端配置
         put("FRONT", new HashMap<String,Object>(){{
-           //使用通用controller类
-           put("USE_BASE_CONTROLLER", true);
-           //使用通用service类
-           put("USE_BASE_SERVICE", true);
-           //使用通用dao类
-           put("USE_BASE_DAO", true);
            //controller/service/dao 默认方法
            put("USE_DEFAULT_METHOD", new ArrayList<String>(){{
                add("findByPrimaryKey");
@@ -64,7 +65,14 @@ public class TemplateConfig {
                add("selectByPage");
                add("deleteByPrimaryKey");
            }});
+        }});
+        //后端配置
+        put("BACK",new HashMap<String, Object>(){{
 
-       }});
+        }});
+        //混合配置
+        put("MIX", new HashMap<String, Object>(){{
+
+        }});
     }};
 }

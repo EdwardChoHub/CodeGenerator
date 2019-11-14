@@ -1,6 +1,6 @@
-package gen.database.converter;
+package gen.converter;
 
-import gen.database.model.DatabaseField;
+import gen.model.DatabaseField;
 import gen.util.StringUtil;
 
 import java.util.Arrays;

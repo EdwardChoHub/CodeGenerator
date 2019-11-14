@@ -2,8 +2,8 @@ package gen.util;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
-import gen.database.model.Database;
-import gen.database.model.DatabaseTable;
+import gen.model.Database;
+import gen.model.DatabaseTable;
 import gen.util.config.PathConfig;
 
 import java.io.File;
