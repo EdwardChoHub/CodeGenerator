@@ -27,13 +27,13 @@ public class TemplateConfig {
      * CUSTOMER 自定义，设置自定义才会区USE_POJO_TYPE_CUSTOMER拿值
      */
     public static final String USE_POJO_MODEL = "EASY";
-   //只有DO,DTO,VO,BO,AO
-    public static final List<String> USE_POJO_TYPE_CUSTOMER = new ArrayList<String>(){{
-        add("DO");
-        add("DTO");
-        add("VO");
-        add("BO");
-        add("AO");
+   //用户自定义POJO分析，暂时只有DO,DTO,VO,BO,AO
+    public static final Map<String,Boolean> USE_POJO_TYPE_CUSTOMER = new HashMap<String, Boolean>(){{
+        put("DO", true);
+        put("DTO", true);
+        put("VO", true);
+        put("BO",true);
+        put("AO", true);
     }};
     /**
      * 渲染模式
