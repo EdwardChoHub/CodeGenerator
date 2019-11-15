@@ -7,8 +7,10 @@ import java.util.Map;
 
 public class DatabaseConnectionConfig {
     //允许使用的数据库连接,使用DB_ID,为空表示全都使用
-    public static final List<String> ALLOW_DB_ID_LIST =  new ArrayList<String>(){{
-        add("BLOG");
+    public static final Map<String,List<String>> ALLOW_DB_LIST = new HashMap<String, List<String>>(){{
+        put("BLOG",new ArrayList<String>(){{
+
+        }});
     }};
     public static final List<Map<String, String>> DB_LIST = new ArrayList<Map<String, String>>(){{
         //多数据库添加多个add(new HashMap<String,String)>{{...}}),DB_ID唯一性
