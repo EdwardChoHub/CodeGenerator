@@ -1,10 +1,8 @@
 package gen.springmvc.model;
 
-import gen.base.util.BaseNameDict;
 import gen.base.xml.model.XmlTag;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SpringConfigCenter {
     public static XmlTag contextPropertyPlaceholder(String location){

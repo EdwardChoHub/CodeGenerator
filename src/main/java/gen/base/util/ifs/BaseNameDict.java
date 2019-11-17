@@ -1,4 +1,4 @@
-package gen.base.util;
+package gen.base.util.ifs;
 
 public interface BaseNameDict {
     String XML_CONFIG = "XML_CONFIG";

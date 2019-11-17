@@ -1,7 +1,7 @@
 package xml;
 
-import gen.base.util.BaseNameDict;
-import gen.base.util.FileToString;
+import gen.base.util.ifs.BaseNameDict;
+import gen.base.util.ifs.modify.FileToString;
 import gen.base.xml.XmlFileToString;
 import gen.base.xml.model.XmlTag;
 import gen.springmvc.model.SpringConfigCenter;

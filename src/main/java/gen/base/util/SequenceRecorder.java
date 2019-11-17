@@ -29,7 +29,7 @@ public class SequenceRecorder {
     //判断是否遍历完
     public boolean hasNext(){
         boolean bool = this.recordIndexNow < this.indexList.size();
-        this.next();
+        if(bool) this.next();
         return bool;
     }
     //指针移动
@@ -38,9 +38,13 @@ public class SequenceRecorder {
         this.recordIndexNow++;
     }
     public String getPrefix(){
-        return this.recordValueNow.split(this.separator)[0];
+        Integer separtorIndex = this.recordValueNow.indexOf(this.separator);
+        System.out.println(this.recordValueNow.substring(0,separtorIndex));
+        return this.recordValueNow.substring(0,separtorIndex);
     }
     public String getIndex(){
-        return this.recordValueNow.split(this.separator)[1];
+        Integer separtorLastIndex = this.recordValueNow.indexOf(this.separator) + this.separator.length();
+        System.out.println(this.recordValueNow.substring(separtorLastIndex));
+        return this.recordValueNow.substring(separtorLastIndex);
     }
 }
